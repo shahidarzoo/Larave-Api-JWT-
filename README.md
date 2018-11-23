@@ -1,19 +1,15 @@
 # Larave-Api-JWT
 ### To write api please follow the link below
-```text
-https://blog.pusher.com/laravel-jwt
-```
+
+[https://blog.pusher.com/laravel-jwt](https://blog.pusher.com/laravel-jwt)
 # Facebook API
 ### Create an facebook developer account just follow this link
-```php
+
 [https://developers.facebook.com/](https://developers.facebook.com/)
-```
 
 
 ### Facebook comment just folllow this link
-```php
-http://blog.naimehossain.com/how-to-add-facebook/
-```
+[http://blog.naimehossain.com/how-to-add-facebook/](http://blog.naimehossain.com/how-to-add-facebook/)
 
 ### Copy this code and past in header page on your App
 ```js

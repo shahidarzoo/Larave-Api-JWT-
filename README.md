@@ -4,12 +4,16 @@
 https://blog.pusher.com/laravel-jwt
 ```
 # Facebook API
+### Create an facebook developer account just follow this link
+```link
+https://developers.facebook.com/
+```
 ### Facebook comment just folllow this link
 ```php
 http://blog.naimehossain.com/how-to-add-facebook/
 ```
 
-### conpy this code on header on your app
+### Copy this code and past in header page on your App
 ```js
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

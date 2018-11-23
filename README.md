@@ -5,8 +5,9 @@ https://blog.pusher.com/laravel-jwt
 ```
 # Facebook API
 ### Create an facebook developer account just follow this link
-[developer account](https://developers.facebook.com/)
-
+```php
+[https://developers.facebook.com/](https://developers.facebook.com/)
+```
 
 
 ### Facebook comment just folllow this link

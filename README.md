@@ -1,6 +1,6 @@
 # Larave-Api-JWT
 ### To write api please follow the link below
-```php
+```link
 https://blog.pusher.com/laravel-jwt
 ```
 # Facebook API
@@ -10,7 +10,7 @@ http://blog.naimehossain.com/how-to-add-facebook/
 ```
 
 ### conpy this code on header on your app
-```html
+```js
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

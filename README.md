@@ -10,7 +10,7 @@ http://blog.naimehossain.com/how-to-add-facebook/
 ```
 
 ### conpy this code on header on your app
-```php
+```html
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -22,6 +22,6 @@ http://blog.naimehossain.com/how-to-add-facebook/
 </script>
 ```
 ### Inside your single post past this code
-```php
+```html
 <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5"></div>
 ```

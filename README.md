@@ -1,6 +1,6 @@
 # Larave-Api-JWT
 ### To write api please follow the link below
-```link
+```text
 https://blog.pusher.com/laravel-jwt
 ```
 # Facebook API

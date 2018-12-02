@@ -2,6 +2,63 @@
 ### To write api please follow the link below
 
 [https://blog.pusher.com/laravel-jwt](https://blog.pusher.com/laravel-jwt)
+
+### Register and Login
+```php
+ public function register(Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|string|email|max:255|unique:users',
+        'name' => 'required',
+        'password'=> 'required'
+    ]);
+    if ($validator->fails()) 
+    {
+        return response()->json($validator->errors());
+    }
+    User::create([
+        'name' => $request->get('name'),
+        'email' => $request->get('email'),
+        'password' => bcrypt($request->get('password')),
+    ]);
+    $user = User::first();
+    Profile::Create(['user_id'=>$user->id]);
+    if($token = JWTAuth::fromUser($user))
+    {
+        return Response::json(['status_code'=> 200, 'data'=> 'Account created successfully'],200);
+    }
+    return Response::json(['status_code'=> 203, 'data'=> 'unbale to create account.'],203);
+
+}
+```
+login
+```php
+public function login(Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|string|email|max:255',
+        'password'=> 'required'
+    ]);
+    if ($validator->fails()) 
+    {
+        return response()->json($validator->errors());
+    }
+    $credentials = $request->only('email', 'password');
+    try 
+    {
+        if (! $token = JWTAuth::attempt($credentials)) 
+        {
+            return response()->json(['status_code'=>422, 'user'=> null,'error' => 'invalid_credentials','token'=>null], 422);
+        }
+    } 
+    catch (JWTException $e) 
+    {
+        return response()->json(['status_code'=>500, 'error' => 'could_not_create_token'], 500);
+    }
+    $user = JWTAuth::toUser($token);
+    return response()->json(['status_code'=>200, 'user'=>$user,'token'=>$token]);
+}
+```
 # Facebook API
 ### Create an facebook developer account just follow this link
 

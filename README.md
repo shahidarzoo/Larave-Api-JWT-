@@ -2,7 +2,14 @@
 ### To write api please follow the link below
 
 [https://blog.pusher.com/laravel-jwt](https://blog.pusher.com/laravel-jwt)
+### Routes
+```php
+Route::group(['middleware' => 'jwt.verify', 'namespace' => 'Api'], function() {
+    Route::get('user', 'AuthController@getAuthenticatedUser');
+    Route::get('closed', 'PostController@closed');
+});
 
+```
 ### Register and Login
 ```php
  public function register(Request $request)

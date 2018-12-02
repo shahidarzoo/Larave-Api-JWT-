@@ -12,7 +12,10 @@ Route::group(['middleware' => 'jwt.verify', 'namespace' => 'Api'], function() {
 ```
 ### Register and Login
 ```php
- public function register(Request $request)
+use JWTFactory;
+use Tymon\JWTAuth\Facades\JWTAuth;
+
+public function register(Request $request)
 {
     $validator = Validator::make($request->all(), [
         'email' => 'required|string|email|max:255|unique:users',

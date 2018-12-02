@@ -10,6 +10,12 @@ Route::group(['middleware' => 'jwt.verify', 'namespace' => 'Api'], function() {
 });
 
 ```
+### Resource api
+just use
+```php
+php artisan make:resource studentapiresource
+
+```
 ### Register and Login
 ```php
 use JWTFactory;

@@ -11,9 +11,13 @@ public $user;
 public function __construct()
 {
     $this->user = \JWTAuth::parseToken()->authenticate();
+    or
+    $this->user = \JWTAuth::parseToken()->toUser();
 }
-or
-$user = \JWTAuth::parseToken()->toUser();
+public function test()
+{
+    print_r($this->user->id);exit;
+}
 ```
 ### Get Token Storage
 

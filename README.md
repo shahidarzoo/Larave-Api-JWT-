@@ -15,6 +15,14 @@ public function __construct()
 or
 $user = \JWTAuth::parseToken()->toUser();
 ```
+### Get Token Storage
+
+Got to config/jwt.php and find the storage path
+### Follow the both links
+[https://jwt-auth.readthedocs.io/en/develop/laravel-installation](https://jwt-auth.readthedocs.io/en/develop/laravel-installation/)
+
+and
+
 [https://blog.pusher.com/laravel-jwt](https://blog.pusher.com/laravel-jwt)
 ### Routes
 ```php

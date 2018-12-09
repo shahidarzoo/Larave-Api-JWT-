@@ -1,6 +1,9 @@
 # Larave-Api-JWT
 ### To write api please follow the link below
-
+### Run the command
+```php
+    composer require "tymon/jwt-auth":"^1.0.0-rc.2"
+```
 [https://blog.pusher.com/laravel-jwt](https://blog.pusher.com/laravel-jwt)
 ### Routes
 ```php

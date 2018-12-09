@@ -3,6 +3,17 @@
 ### Run the command
 ```php
     composer require "tymon/jwt-auth":"^1.0.0-rc.2"
+    
+```
+### Get Logged In User Id
+```php
+public $user;
+public function __construct()
+{
+    $this->user = \JWTAuth::parseToken()->authenticate();
+}
+or
+$user = \JWTAuth::parseToken()->toUser();
 ```
 [https://blog.pusher.com/laravel-jwt](https://blog.pusher.com/laravel-jwt)
 ### Routes

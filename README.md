@@ -37,7 +37,7 @@ just use
 php artisan make:resource studentapiresource
 
 ```
-### Login With Google in Laravel
+### Login With Google and facebook in Laravel
 Copy the code and past inside config/service.php 
 ```php
 'google' => [
@@ -56,15 +56,26 @@ You can get the client id secret key and set redireact url by following below li
 ['https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId']('https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId')
 inside .env file
 ```php
- 
- GOOGLE_CLIENT_ID=your client id.apps.googleusercontent.com
+Google 
+GOOGLE_CLIENT_ID=your client id.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=secret key
 GOOGLE_REDIRECT="http://csvlive.org/callback"
+
+Facebook
+FACEBOOK_CLIENT_ID=424324320208
+FACEBOOK_CLIENT_SECRET=7d5ceb16c2cwrewrewe81989ac70245
+FACEBOOK_REDIRECT="http://csvlive.org/facebook_callback"
 ```
 ### Route setup
 ```php
+Google
 Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
 Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
+
+Facebook
+
+Route::get('/facebook_redirect', 'Auth\LoginController@redirectToFacebookProvider');
+Route::get('/facebook_callback', 'Auth\LoginController@handleFacebookProviderCallback');
 ```
 ### LoginController inside Auth\LoginController
 ```php
@@ -102,6 +113,44 @@ public function handleProviderCallback(Request $request)
      }
             return redirect()->to('/home');
     }
+    
+    // Facebook
+public function redirectToFacebookProvider()
+{
+    return Socialite::driver('facebook')->redirect();
+}
+public function handleFacebookProviderCallback(Request $request)
+{
+        try 
+        {
+            $user = Socialite::driver('facebook')->user();
+        } 
+        catch (\Exception $e) 
+        {
+            return redirect('/login');
+        }
+        
+        // check if they're an existing user
+        $existingUser = User::where('email', $user->getEmail())->first();
+        if($existingUser){
+            // log them in
+            auth()->login($existingUser, true);
+        } else {
+            /*$full_name = explode(" ", trim($user->getName()));
+            $new_user->first_name = $full_name[0];
+            $new_user->last_name = $full_name[1];*/
+            $newUser = new User();
+            $newUser->name            = $user->name;
+            $newUser->email           = $user->email;
+            $newUser->password = bcrypt(str_random(15));
+            $newUser->google_id       = $user->id;
+            $newUser->save();
+            auth()->login($newUser, true);
+        }
+        return redirect()->to('/home');
+    }
+
+
 ```
 
 # Facebook Comment API

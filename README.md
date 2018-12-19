@@ -1,4 +1,7 @@
 # Larave-Api-JWT
+### Crop image In laravel
+To crop image in laravel follow below link
+[https://itsolutionstuff.com/post/laravel-5-ajax-crop-image-before-upload-using-using-croppie-pluginexample.html](https://itsolutionstuff.com/post/laravel-5-ajax-crop-image-before-upload-using-using-croppie-pluginexample.html)
 ### To write api please follow the link below
 ### Run the command
 ```php

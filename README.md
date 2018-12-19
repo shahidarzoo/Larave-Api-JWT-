@@ -52,8 +52,17 @@ Copy the code and past inside config/service.php
     ],
 ```
 ### Fallow this link
-You can get the client id secret key and set redireact url by following below link
-['https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId']('https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId')
+You can get the client id secret key and set redireact url by following below link for google
+['https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId'](https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId)
+
+For Focebook
+
+['https://appdividend.com/2017/07/12/laravel-facebook-login/'](https://appdividend.com/2017/07/12/laravel-facebook-login/)
+
+### Facebook link
+
+['https://developers.facebook.com/'](https://developers.facebook.com/)
+
 inside .env file
 ```php
 Google 

@@ -53,13 +53,13 @@ Copy the code and past inside config/service.php
 ```
 ### Fallow these links for google and facebook
 #### For Google keys
-['https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId'](https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId)
+[https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId](https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId)
 
 ### For Facebook keys
 
-['https://appdividend.com/2017/07/12/laravel-facebook-login/'](https://appdividend.com/2017/07/12/laravel-facebook-login/)
+[https://appdividend.com/2017/07/12/laravel-facebook-login/](https://appdividend.com/2017/07/12/laravel-facebook-login/)
 
-['https://developers.facebook.com/'](https://developers.facebook.com/)
+[https://developers.facebook.com/](https://developers.facebook.com/)
 
 inside .env file
 ```php

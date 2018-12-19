@@ -1,4 +1,6 @@
 # Larave-Api-JWT
+### Multiple Images upload in laravel
+[https://appdividend.com/2018/02/05/laravel-multiple-images-upload-tutorial/](https://appdividend.com/2018/02/05/laravel-multiple-images-upload-tutorial/)
 ### Crop image In laravel
 To crop image in laravel follow below link
 [https://itsolutionstuff.com/post/laravel-5-ajax-crop-image-before-upload-using-using-croppie-pluginexample.html](https://itsolutionstuff.com/post/laravel-5-ajax-crop-image-before-upload-using-using-croppie-pluginexample.html)

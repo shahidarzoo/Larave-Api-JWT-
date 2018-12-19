@@ -29,10 +29,8 @@ and
 
 [https://blog.pusher.com/laravel-jwt](https://blog.pusher.com/laravel-jwt)
 ### Routes
-```php
-Open Api.php File
+Open Api.php File form above clone area
 
-```
 ### Resource api
 just use
 ```php
@@ -40,8 +38,8 @@ php artisan make:resource studentapiresource
 
 ```
 ### Login With Google in Laravel
-```php
 Copy the code and past inside config/service.php 
+```php
 'google' => [
         'client_id'     => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
@@ -54,9 +52,11 @@ Copy the code and past inside config/service.php
     ],
 ```
 ### Fallow this link
+You can get the client id secret key and set redireact url by following below link
 ['https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId']('https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId')
+inside .env file
 ```php
- inside .env file
+ 
  GOOGLE_CLIENT_ID=your client id.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=secret key
 GOOGLE_REDIRECT="http://csvlive.org/callback"

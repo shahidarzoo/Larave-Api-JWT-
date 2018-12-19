@@ -51,15 +51,13 @@ Copy the code and past inside config/service.php
         'redirect' => env('FACEBOOK_REDIRECT')
     ],
 ```
-### Fallow this link
-You can get the client id secret key and set redireact url by following below link for google
+### Fallow these links for google and facebook
+#### For Google keys
 ['https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId'](https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId)
 
-For Focebook
+### For Facebook keys
 
 ['https://appdividend.com/2017/07/12/laravel-facebook-login/'](https://appdividend.com/2017/07/12/laravel-facebook-login/)
-
-### Facebook link
 
 ['https://developers.facebook.com/'](https://developers.facebook.com/)
 

@@ -30,10 +30,7 @@ and
 [https://blog.pusher.com/laravel-jwt](https://blog.pusher.com/laravel-jwt)
 ### Routes
 ```php
-Route::group(['middleware' => 'jwt.verify', 'namespace' => 'Api'], function() {
-    Route::get('user', 'AuthController@getAuthenticatedUser');
-    Route::get('closed', 'PostController@closed');
-});
+Open Api.php File
 
 ```
 ### Resource api
@@ -42,66 +39,72 @@ just use
 php artisan make:resource studentapiresource
 
 ```
-### Register and Login
+### Login With Google in Laravel
 ```php
-use JWTFactory;
-use Tymon\JWTAuth\Facades\JWTAuth;
-
-public function register(Request $request)
-{
-    $validator = Validator::make($request->all(), [
-        'email' => 'required|string|email|max:255|unique:users',
-        'name' => 'required',
-        'password'=> 'required'
-    ]);
-    if ($validator->fails()) 
-    {
-        return response()->json($validator->errors());
-    }
-    User::create([
-        'name' => $request->get('name'),
-        'email' => $request->get('email'),
-        'password' => bcrypt($request->get('password')),
-    ]);
-    $user = User::first();
-    Profile::Create(['user_id'=>$user->id]);
-    if($token = JWTAuth::fromUser($user))
-    {
-        return Response::json(['status_code'=> 200, 'data'=> 'Account created successfully'],200);
-    }
-    return Response::json(['status_code'=> 203, 'data'=> 'unbale to create account.'],203);
-
-}
+Copy the code and past inside config/service.php 
+'google' => [
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT')
+    ],
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => env('FACEBOOK_REDIRECT')
+    ],
 ```
-login
+### Fallow this link
+['https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId']('https://console.developers.google.com/apis/credentials?project=csvlive&folder&organizationId')
 ```php
-public function login(Request $request)
+ inside .env file
+ GOOGLE_CLIENT_ID=your client id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=secret key
+GOOGLE_REDIRECT="http://csvlive.org/callback"
+```
+### Route setup
+```php
+Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
+Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
+```
+### LoginController inside Auth\LoginController
+```php
+public function redirectToProvider()
 {
-    $validator = Validator::make($request->all(), [
-        'email' => 'required|string|email|max:255',
-        'password'=> 'required'
-    ]);
-    if ($validator->fails()) 
-    {
-        return response()->json($validator->errors());
-    }
-    $credentials = $request->only('email', 'password');
+   return Socialite::driver('google')->redirect();
+}
+
+public function handleProviderCallback(Request $request)
+{
     try 
     {
-        if (! $token = JWTAuth::attempt($credentials)) 
-        {
-            return response()->json(['status_code'=>422, 'user'=> null,'error' => 'invalid_credentials','token'=>null], 422);
-        }
+         $user = Socialite::driver('google')->user();
     } 
-    catch (JWTException $e) 
+    catch (\Exception $e) 
     {
-        return response()->json(['status_code'=>500, 'error' => 'could_not_create_token'], 500);
+        return redirect('/login');
     }
-    $user = JWTAuth::toUser($token);
-    return response()->json(['status_code'=>200, 'user'=>$user,'token'=>$token]);
-}
+    // check if they're an existing user
+     $existingUser = User::where('email', $user->email)->first();
+     if($existingUser)
+     {
+         // log them in
+          auth()->login($existingUser, true);
+     } 
+     else 
+     {
+            $newUser = new User();
+            $newUser->name            = $user->name;
+            $newUser->email           = $user->email;
+            $newUser->password = bcrypt(str_random(15));
+            $newUser->google_id       = $user->id;
+            $newUser->save();
+            auth()->login($newUser, true);
+     }
+            return redirect()->to('/home');
+    }
 ```
-# Facebook API
+
+# Facebook Comment API
 ### Create an facebook developer account just follow this link
 
 [https://developers.facebook.com/](https://developers.facebook.com/)

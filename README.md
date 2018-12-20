@@ -2,7 +2,7 @@
 ### Laravel Shopping Cart
 Follow the link to make shopping cart in laravel
 
-[https://github.com/Crinsane/LaravelShoppingcart](https://github.com/Crinsane/LaravelShoppingcart)
+[http://webmobtuts.com/backend-development/creating-a-shopping-cart-with-laravel/](http://webmobtuts.com/backend-development/creating-a-shopping-cart-with-laravel/)
 
 ### Multiple Images upload in laravel
 [https://appdividend.com/2018/02/05/laravel-multiple-images-upload-tutorial/](https://appdividend.com/2018/02/05/laravel-multiple-images-upload-tutorial/)

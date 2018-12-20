@@ -10,7 +10,8 @@ Follow the link to make shopping cart in laravel
 To crop image in laravel follow below link
 [https://itsolutionstuff.com/post/laravel-5-ajax-crop-image-before-upload-using-using-croppie-pluginexample.html](https://itsolutionstuff.com/post/laravel-5-ajax-crop-image-before-upload-using-using-croppie-pluginexample.html)
 ### To write api please follow the link below
-### Run the command
+# API Start Here
+### Api Run the command
 ```php
     composer require "tymon/jwt-auth":"^1.0.0-rc.2"
     

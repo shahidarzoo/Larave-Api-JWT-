@@ -30,6 +30,28 @@ public function test()
     print_r($this->user->id);exit;
 }
 ```
+### Exception 
+got to App/Exception/handler.php and past
+
+```php
+public function render($request, Exception $exception)
+{
+
+    if ($exception instanceof TokenInvalidException)
+    {
+        return response()->json(['status' => 'Token is Invalid']);
+    }
+    else if ($exception instanceof TokenExpiredException)
+    {
+        return response()->json(['status' => 'Token is Expired']);
+    }
+    else if ($exception instanceof \Tymon\JWTAuth\Exceptions\JWTException)
+    {
+        return response()->json(['status' => 'You did not provide any token']);
+    }
+    return parent::render($request, $exception);
+}
+```
 ### Get Token Storage
 
 Got to config/jwt.php and find the storage path

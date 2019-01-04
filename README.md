@@ -31,7 +31,7 @@ public function test()
 }
 ```
 ### Exception 
-got to App/Exception/handler.php and past
+got to App/Exception/Handler.php and past
 
 ```php
 public function render($request, Exception $exception)
